@@ -3,21 +3,32 @@ import './App.css';
 
 import Form from "./components/Form";
 import Recipes from "./components/Recipes";
-
-const API_KEY = "Your-api-key";
+import axios from 'axios'
 
 class App extends Component {
   state = {
-    recipes: []
+    recipes: [],
+    error: '',
+    loading: false
   }
   getRecipe = async (e) => {
     const recipeName = e.target.elements.recipeName.value;
     e.preventDefault();
-    const api_call = await fetch(`https://forkify-api.herokuapp.com/api/search?q=${recipeName}`);
+    this.setState({ loading: true })
+    try {
 
-    const data = await api_call.json();
-    this.setState({ recipes: data.recipes });
-    console.log(this.state.recipes);
+      const response = await axios.get(`https://forkify-api.herokuapp.com/api/search?q=${recipeName}`)
+      // const api_call = await fetch(`https://forkify-api.herokuapp.com/api/search?q=${recipeName}`);
+
+      // const data = await api_call.json();
+      if (response.status === 200)
+        this.setState({ recipes: response.data.recipes, error: '', loading: false });
+    }
+    catch (e) {
+      console.log('Errror', e.message)
+      this.setState({ error: 'No data found for given recipie', recipes: [], loading: false })
+    }
+    // console.log(this.state.recipes);
   }
   // componentDidMount = () => {
   //   const json = localStorage.getItem("recipes");
@@ -35,7 +46,9 @@ class App extends Component {
           <h1 className="App-title">Recipe Search</h1>
         </header>
         <Form getRecipe={this.getRecipe} />
-        <Recipes recipes={this.state.recipes} />
+        {this.state.loading ? 'Loding...' :
+          <Recipes recipes={this.state.recipes} error={this.state.error} />
+        }
       </div>
     );
   }

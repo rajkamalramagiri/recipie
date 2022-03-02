@@ -381,6 +381,13 @@
   "resolved" "https://registry.npmjs.org/aws4/-/aws4-1.7.0.tgz"
   "version" "1.7.0"
 
+"axios@^0.26.0":
+  "integrity" "sha512-lKoGLMYtHvFrPVt3r+RBMp9nh34N0M8zEfCWqdWZx6phynIEhQqAdydpyBAAG211zlhX9Rgu08cOamy6XjE5Og=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.26.0.tgz"
+  "version" "0.26.0"
+  dependencies:
+    "follow-redirects" "^1.14.8"
+
 "axobject-query@0.1.0":
   "integrity" "sha1-YvWdvFnJ+SQnWco0mWDnov48NsA="
   "resolved" "https://registry.npmjs.org/axobject-query/-/axobject-query-0.1.0.tgz"
@@ -3119,6 +3126,11 @@
   "integrity" "sha1-2uRqnXj74lKSJYzB54CkHZXAN4I="
   "resolved" "https://registry.npmjs.org/flatten/-/flatten-1.0.2.tgz"
   "version" "1.0.2"
+
+"follow-redirects@^1.14.8":
+  "integrity" "sha512-MQDfihBQYMcyy5dhRDJUHcw7lb2Pv/TuE6xP1vyraLukNDHKbDxDNaOE3NbCAdKQApno+GPRyo1YAp89yCjK4w=="
+  "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.9.tgz"
+  "version" "1.14.9"
 
 "follow-redirects@1.5.0":
   "integrity" "sha512-fdrt472/9qQ6Kgjvb935ig6vJCuofpBUD14f9Vb+SLlm7xIe4Qva5gey8EKtv8lp7ahE1wilg3xL1znpVGtZIA=="
